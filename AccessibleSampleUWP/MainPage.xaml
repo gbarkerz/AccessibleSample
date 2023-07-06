@@ -8,7 +8,106 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Margin="10">
+        
+        <ScrollViewer Grid.Row="1">
+            <StackPanel>
 
+                <TextBlock Text="This app demonstrates things." />
+
+                <Border x:Name="InaccessibleGroupBorder" BorderThickness="2" Margin="0,10,0,0"
+                    AutomationProperties.LabeledBy="{Binding ElementName=InaccessibleControlsGroupLabel}">
+
+                    <StackPanel Margin="10">
+
+                        <TextBlock 
+                            Name="InaccessibleControlsGroupLabel" 
+                            Text="Inaccessible Controls" />
+
+                        <Button Margin="0,10,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="ms-appx:///Assets/StoreLogo.png" Stretch="None" />
+                                <TextBlock x:Uid="InaccessibleButtonLabel"
+                                    VerticalAlignment="Center"
+                                    Margin="10,0,0,0" />
+                            </StackPanel>
+                        </Button>
+
+                        <Button Margin="0,10,0,0">
+                            <Image Source="ms-appx:///Assets/StoreLogo.png" Stretch="None" />
+                        </Button>
+
+                        <ListView ItemsSource="{x:Bind ViewModel.SampleItems}" 
+                            Header="Inaccessible Items"
+                            BorderBrush="Black" BorderThickness="1"
+                            Padding="10" Margin="0,10,0,0">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="ms-appx:///Assets/StoreLogo.png" Stretch="None" />
+                                        <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                    </StackPanel>
+                </Border>
+                
+                <Border x:Name="AccessibleGroupBorder" BorderThickness="2" Margin="0,10,0,0"
+                        AutomationProperties.LabeledBy="{Binding ElementName=AccessibleControlsGroupLabel}" >
+                    <StackPanel Margin="10">
+
+                        <TextBlock Name="AccessibleControlsGroupLabel" Text="Accessible Controls" />
+
+                        <Button 
+                            Margin="0,10,0,0" 
+                            AutomationProperties.LabeledBy="{Binding ElementName=AccessibleButtonTextBlock}">
+                            <StackPanel Orientation="Horizontal" AutomationProperties.AccessibilityView="Raw">
+                                <Image Source="ms-appx:///Assets/StoreLogo.png" Stretch="None" 
+                                       AutomationProperties.AccessibilityView="Raw"/>
+                                <TextBlock x:Uid="AccessibleButtonLabel" Name="AccessibleButtonTextBlock" 
+                                    VerticalAlignment="Center"
+                                           AutomationProperties.AccessibilityView="Raw"
+                                    Margin="10,0,0,0"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Uid="SampleAccessibleButtonWithoutText" Margin="0,10,0,0">
+                            <Image Source="ms-appx:///Assets/StoreLogo.png" Stretch="None" 
+                                 AutomationProperties.AccessibilityView="Raw" />
+                        </Button>
+
+                        <ListView ItemsSource="{x:Bind ViewModel.SampleItems}" 
+                            BorderBrush="Black" BorderThickness="1"
+                            Header="Accessible Items"
+                            Padding="10" Margin="0,10,0,0">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid AutomationProperties.Name="{Binding Name}"
+                                        AutomationProperties.AccessibilityView="Raw">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="ms-appx:///Assets/StoreLogo.png" Stretch="None" 
+                                               AutomationProperties.AccessibilityView="Raw"/>
+                                        <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" 
+                                                   AutomationProperties.AccessibilityView="Raw"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+    
     </Grid>
 </Page>

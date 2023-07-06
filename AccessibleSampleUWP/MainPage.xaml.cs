@@ -1,30 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+﻿using System.Collections.ObjectModel;
+using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace AccessibleSampleUWP
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MainPage : Page
     {
         public MainPage()
         {
             this.InitializeComponent();
+
+            this.ViewModel = new SampleItemViewModel();
+
+            InaccessibleGroupBorder.BorderBrush = this.Foreground;
+            AccessibleGroupBorder.BorderBrush = this.Foreground;
         }
+
+        public SampleItemViewModel ViewModel { get; set; }
+    }
+
+    public class SampleItemViewModel
+    {
+        private ObservableCollection<SampleItem> sampleItems = new ObservableCollection<SampleItem>();
+        public ObservableCollection<SampleItem> SampleItems { get { return this.sampleItems; } }
+
+        public SampleItemViewModel()
+        {
+            var loader = new ResourceLoader();
+
+            this.sampleItems.Add(new SampleItem()
+            {
+                Name = loader.GetString("First")
+            });
+
+            this.sampleItems.Add(new SampleItem()
+            {
+                Name = loader.GetString("Second")
+            });
+        }
+    }
+
+    public class SampleItem
+    {
+        public string Name { get; set; }
     }
 }
