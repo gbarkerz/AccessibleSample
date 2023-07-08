@@ -1,17 +1,106 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AccessibleSample"
              x:Class="AccessibleSample.MainPage">
 
-    <ScrollView>
+    <ContentPage.BindingContext>
+        <local:SampleItemViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView Margin="10">
 
         <StackLayout>
 
-            <ImageButton Source="dotnet_bot.png" />
+            <Label Text="This app demonstrates things." />
 
-            <ImageButton Source="dotnet_bot.png" />
+            <Border x:Name="InaccessibleGroupBorder" StrokeThickness="2" Margin="0,10,0,0">
+
+                <StackLayout Margin="10">
+
+                    <Label Text="Inaccessible Controls" />
+
+                    <ImageButton Source="sample_decorative.png" 
+                        Margin="0,10,0,0"
+                        HorizontalOptions="Start"
+                        WidthRequest="100" HeightRequest="100" />
+
+                    <CollectionView ItemsSource="{Binding SampleItems}" HeightRequest="200"
+                        Margin="0,10,0,0"
+                        Header="Inaccessible Items">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="sample_decorative.png" Aspect="AspectFill"
+                                   HeightRequest="60" WidthRequest="60" />
+                                    <Label Grid.Column="1"
+                                        VerticalOptions="Center"
+                                        Margin="10,0,0,0"
+                                        Text="{Binding Name}" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </StackLayout>
+
+            </Border>
+
+            <!-- Barker: Note that setting a SemanticProperties.Hint and 
+                    AutomationProperties.IsInAccessibleTree="True" on a StackLayout
+                    does not get it exposed through UIA. -->
+
+            <Border x:Name="AccessibleGroupBorder" StrokeThickness="2" Margin="0,10,0,0"
+                AutomationProperties.IsInAccessibleTree="True"
+                SemanticProperties.Hint="Fern">
+
+                <StackLayout Margin="10">
+
+                    <Label Text="Accessible Controls" />
+
+                    <ImageButton Source="sample_decorative.png" 
+                        SemanticProperties.Description="Wallace"
+                        Margin="0,10,0,0" 
+                        HorizontalOptions="Start"
+                        WidthRequest="100" HeightRequest="100" />
+
+                    <!-- Barker: ListView items don't seem to get their UIA Name properties set 
+                        like CollectionView items, so use a CollectionView items. -->
+            
+                    <CollectionView ItemsSource="{Binding SampleItems}" HeightRequest="200" 
+                        Margin="0,10,0,0"
+                        Header="Accessible Items">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <!-- Barker: With setting SemanticProperties.Description here, 
+                                    the list items UIA Name is the namespace and class. -->
+                                    <Grid SemanticProperties.Description="{Binding Name}"
+                                        Padding="10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image 
+                                            Source="sample_decorative.png" Aspect="AspectFill"
+                                            HeightRequest="60" WidthRequest="60" />
+                                        <Label Grid.Column="1" 
+                                            Margin="10,0,0,0"
+                                            Text="{Binding Name}" />
+                                    </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </StackLayout>
+
+            </Border>
 
         </StackLayout>        
+
     </ScrollView>
 
 </ContentPage>
