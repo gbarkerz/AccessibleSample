@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using AccessibleSample.ResX;
+using Microsoft.Maui.Controls.Platform;
+using System.Collections.ObjectModel;
 using Windows.ApplicationModel.Resources;
 
 namespace AccessibleSample;
@@ -11,6 +13,11 @@ public partial class MainPage : ContentPage
     }
 
     public SampleItemViewModel ViewModel { get; set; }
+
+    private async void PlayButton_Clicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("Accessible Sample", "Play button clicked.", "OK");
+    }
 }
 
 public class SampleItemViewModel
@@ -20,16 +27,14 @@ public class SampleItemViewModel
 
     public SampleItemViewModel()
     {
-        //        var loader = new ResourceLoader();
-
         this.sampleItems.Add(new SampleItem()
         {
-            Name = "First"
+            Name = AppResources.ResourceManager.GetString("SongFirst")
         }); ;
 
         this.sampleItems.Add(new SampleItem()
         {
-            Name = "Second"
+            Name = AppResources.ResourceManager.GetString("SongSecond")
         });
     }
 }
