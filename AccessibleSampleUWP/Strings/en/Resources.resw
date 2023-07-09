@@ -117,19 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AccessibleButtonLabel.Text" xml:space="preserve">
-    <value>Test</value>
+  <data name="AccessibleList.Header" xml:space="preserve">
+    <value>Songs</value>
   </data>
-  <data name="First" xml:space="preserve">
-    <value>First</value>
+  <data name="AccessiblePauseButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Pause</value>
   </data>
-  <data name="InaccessibleButtonLabel.Text" xml:space="preserve">
-    <value>Test</value>
+  <data name="AccessiblePlayButton.Text" xml:space="preserve">
+    <value>Play</value>
   </data>
-  <data name="SampleAccessibleButtonWithoutText.AutomationProperties.Name" xml:space="preserve">
-    <value>Repeat</value>
+  <data name="AppName" xml:space="preserve">
+    <value>Accessible Sample</value>
   </data>
-  <data name="Second" xml:space="preserve">
-    <value>Second</value>
+  <data name="InaccessibleList.Header" xml:space="preserve">
+    <value>Songs</value>
+  </data>
+  <data name="InaccessiblePlayButton.Text" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="PauseButtonResponse" xml:space="preserve">
+    <value>Pause button clicked.</value>
+  </data>
+  <data name="PlayButtonResponse" xml:space="preserve">
+    <value>Play button clicked.</value>
+  </data>
+  <data name="SongFirst" xml:space="preserve">
+    <value>Here Comes the Sun</value>
+  </data>
+  <data name="SongSecond" xml:space="preserve">
+    <value>Tell the Bees</value>
   </data>
 </root>
