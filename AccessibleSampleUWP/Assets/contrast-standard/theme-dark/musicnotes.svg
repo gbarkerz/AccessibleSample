@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <g transform="matrix(-1,0,0,-1,540,270)">
+    <path d="M 483,219 C 479,221 478,224 479,227 C 480,230 484,230 488,229 C 492,227 494,223 493,221 C 491,218 487,217 483,219 C 483,219 483,219 483,219 z "
+       style="stroke:#FFFFFF;stroke-width:2" />
+    <rect y="223" x="480" height="37" width="1"
+       style="stroke:#FFFFFF;stroke-width:2" />
+    <path d="M 528,219 C 525,221 523,224 524,227 C 525,229 530,230 533,228 C 537,227 539,223 538,220 C 537,218 533,217 529,219 C 529,219 529,219 528,219 z "
+       style="stroke:#FFFFFF;stroke-width:2" />
+    <path d="M 525,225 L 525,259"
+       style="stroke:#FFFFFF;stroke-width:2" />
+    <rect y="256" x="480" height="5" width="45" 
+       style="stroke:#FFFFFF;stroke-width:2" />
+  </g>
+</svg>

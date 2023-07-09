@@ -130,9 +130,12 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\musicnotes.svg" />
-    <Content Include="Assets\pause.svg" />
-    <Content Include="Assets\play.svg" />
+    <Content Include="Assets\contrast-standard\theme-light\musicnotes.svg" />
+    <Content Include="Assets\contrast-standard\theme-light\pause.svg" />
+    <Content Include="Assets\contrast-standard\theme-light\play.svg" />
+    <Content Include="Assets\contrast-standard\theme-dark\musicnotes.svg" />
+    <Content Include="Assets\contrast-standard\theme-dark\pause.svg" />
+    <Content Include="Assets\contrast-standard\theme-dark\play.svg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -160,6 +163,7 @@
   <ItemGroup>
     <PRIResource Include="Strings\en\Resources.resw" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

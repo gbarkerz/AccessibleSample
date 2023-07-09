@@ -9,6 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <!-- Note: Use of AutomationProperties.AccessibilityView="Raw" is not included in this sample. -->
+
     
     <Grid Margin="10">
         
@@ -40,7 +41,8 @@
                             </Button>
 
                             <Button Click="PauseButton_Click" Margin="10,10,0,0">
-                                <Image Source="ms-appx:///Assets/pause.svg" Width="60" Height="60" />
+                                <Image Source="ms-appx:///Assets/pause.svg"                                
+                                    Width="60" Height="60" />
                             </Button>
 
                         </StackPanel>
