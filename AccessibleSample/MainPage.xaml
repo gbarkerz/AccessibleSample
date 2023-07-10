@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:AccessibleSample"
+             xmlns:res="clr-namespace:AccessibleSample.ResX" 
              x:Class="AccessibleSample.MainPage">
 
     <ContentPage.BindingContext>
@@ -18,7 +19,7 @@
 
                 <StackLayout Margin="10">
 
-                    <Label Text="Inaccessible Controls" />
+                    <Label Text="{x:Static res:AppResources.InaccessibleControls}" />
 
                     <ImageButton Source="play.png" Clicked="PlayButton_Clicked"
                         Margin="0,10,0,0"
@@ -28,7 +29,7 @@
                     <Border StrokeThickness="2" Margin="0,10,0,0" Padding="10">
                         <CollectionView ItemsSource="{Binding SampleItems}" HeightRequest="200"
                             Margin="0"
-                            Header="Songs">
+                            Header="{x:Static res:AppResources.Songs}">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <HorizontalStackLayout Margin="10,10,10,0">
@@ -52,7 +53,7 @@
 
                 <StackLayout Margin="10">
 
-                    <Label Text="Accessible Controls" />
+                    <Label Text="{x:Static res:AppResources.AccessibleControls}" />
 
                     <ImageButton Source="play.png" Clicked="PlayButton_Clicked"
                         SemanticProperties.Description="Play"

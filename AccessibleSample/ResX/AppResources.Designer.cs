@@ -61,11 +61,65 @@ namespace AccessibleSample.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accessible Controls.
+        /// </summary>
+        internal static string AccessibleControls {
+            get {
+                return ResourceManager.GetString("AccessibleControls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accessible Sample.
+        /// </summary>
+        internal static string AppName {
+            get {
+                return ResourceManager.GetString("AppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inaccessible Controls.
+        /// </summary>
+        internal static string InaccessibleControls {
+            get {
+                return ResourceManager.GetString("InaccessibleControls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        internal static string OK {
+            get {
+                return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Play Button Clicked.
+        /// </summary>
+        internal static string PlayButtonClicked {
+            get {
+                return ResourceManager.GetString("PlayButtonClicked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Here Comes the Sun.
         /// </summary>
         internal static string SongFirst {
             get {
                 return ResourceManager.GetString("SongFirst", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Songs.
+        /// </summary>
+        internal static string Songs {
+            get {
+                return ResourceManager.GetString("Songs", resourceCulture);
             }
         }
         

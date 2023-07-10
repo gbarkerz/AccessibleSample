@@ -1,7 +1,5 @@
 ﻿using AccessibleSample.ResX;
-using Microsoft.Maui.Controls.Platform;
 using System.Collections.ObjectModel;
-using Windows.ApplicationModel.Resources;
 
 namespace AccessibleSample;
 
@@ -16,7 +14,12 @@ public partial class MainPage : ContentPage
 
     private async void PlayButton_Clicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Accessible Sample", "Play button clicked.", "OK");
+        var resManager = AppResources.ResourceManager;
+
+        await DisplayAlert(
+            resManager.GetString("AppName"),
+            resManager.GetString("PlayButtonClicked"),
+            resManager.GetString("OK"));
     }
 }
 

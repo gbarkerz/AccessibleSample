@@ -117,8 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccessibleControls" xml:space="preserve">
+    <value>Accessible Controls</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Accessible Sample</value>
+  </data>
+  <data name="InaccessibleControls" xml:space="preserve">
+    <value>Inaccessible Controls</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="PlayButtonClicked" xml:space="preserve">
+    <value>Play Button Clicked</value>
+  </data>
   <data name="SongFirst" xml:space="preserve">
     <value>Here Comes the Sun</value>
+  </data>
+  <data name="Songs" xml:space="preserve">
+    <value>Songs</value>
   </data>
   <data name="SongSecond" xml:space="preserve">
     <value>Tell the Bees</value>
