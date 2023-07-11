@@ -21,7 +21,8 @@
 
                     <Label Text="{x:Static res:AppResources.InaccessibleControls}" />
 
-                    <ImageButton Source="play.png" Clicked="PlayButton_Clicked"
+                    <ImageButton
+                        Source="{AppThemeBinding Light=play_light.png, Dark=play_dark.png}"                        
                         Margin="0,10,0,0"
                         HorizontalOptions="Start"
                         WidthRequest="100" HeightRequest="100" />
@@ -33,7 +34,8 @@
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <HorizontalStackLayout Margin="10,10,10,0">
-                                        <Image Source="musicnotes.png"  VerticalOptions="Center"/>
+                                        <Image Source="{AppThemeBinding Light=musicnotes_light.png, Dark=musicnotes_dark.png}"
+                                            VerticalOptions="Center" />
                                         <Label Text="{Binding Name}" 
                                             Margin="10,0,0,0" VerticalOptions="Center" />
                                     </HorizontalStackLayout>
@@ -55,7 +57,9 @@
 
                     <Label Text="{x:Static res:AppResources.AccessibleControls}" />
 
-                    <ImageButton Source="play.png" Clicked="PlayButton_Clicked"
+                    <ImageButton 
+                        Source="{AppThemeBinding Light=play_light.png, Dark=play_dark.png}"                        
+                        Clicked="PlayButton_Clicked"
                         SemanticProperties.Description="Play"
                         Margin="0,10,0,0" 
                         HorizontalOptions="Start"
@@ -75,7 +79,8 @@
                                     <HorizontalStackLayout 
                                         SemanticProperties.Description="{Binding Name}"
                                         Margin="10,10,10,0">
-                                        <Image Source="musicnotes.png"  VerticalOptions="Center"/>
+                                        <Image Source="{AppThemeBinding Light=musicnotes_light.png, Dark=musicnotes_dark.png}"
+                                            VerticalOptions="Center" />
                                         <Label Text="{Binding Name}" 
                                             Margin="10,0,0,0" VerticalOptions="Center" />
                                     </HorizontalStackLayout>
