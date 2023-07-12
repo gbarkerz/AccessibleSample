@@ -97,7 +97,7 @@ namespace AccessibleSample.ResX {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Play Button Clicked.
+        ///   Looks up a localized string similar to Play Button Clicked..
         /// </summary>
         internal static string PlayButtonClicked {
             get {

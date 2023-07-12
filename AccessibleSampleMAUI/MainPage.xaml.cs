@@ -1,5 +1,6 @@
 ﻿using AccessibleSample.ResX;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace AccessibleSample;
 
@@ -20,6 +21,20 @@ public partial class MainPage : ContentPage
             resManager.GetString("AppName"),
             resManager.GetString("PlayButtonClicked"),
             resManager.GetString("OK"));
+    }
+
+    private async void ReadMeButton_Clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            Uri uri = new Uri("https://github.com/gbarkerz/AccessibleSample/blob/master/README.md");
+
+            await Browser.Default.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine("ReadMeButton_ClickedAsync: " + ex.Message);
+        }
     }
 }
 

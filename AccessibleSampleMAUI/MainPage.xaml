@@ -13,8 +13,14 @@
 
         <StackLayout>
 
-            <Label Text="This app demonstrates things." />
+            <!-- For hyperlinks, do not us the tappable Label approach at 
+                https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/label#create-a-hyperlink
+                because the link is not keyboard focusable. Instead use a keyboard accessible Button. -->
 
+            <Label Text="This sample app demonstrates some fundamental steps relating to building .NET MAUI apps that are more accessible to more people." />
+            <Button Text="Visit the app ReadMe at Github" Clicked="ReadMeButton_Clicked"
+                HorizontalOptions="StartAndExpand" Margin="0,10,0,0"/>
+            
             <Border StrokeThickness="2" Margin="0,10,0,0">
 
                 <StackLayout Margin="10">
@@ -23,12 +29,13 @@
 
                     <ImageButton
                         Source="{AppThemeBinding Light=play_light.png, Dark=play_dark.png}"                        
+                        Clicked="PlayButton_Clicked"
                         Margin="0,10,0,0"
                         HorizontalOptions="Start"
                         WidthRequest="100" HeightRequest="100" />
 
                     <Border StrokeThickness="2" Margin="0,10,0,0" Padding="10">
-                        <CollectionView ItemsSource="{Binding SampleItems}" HeightRequest="200"
+                        <CollectionView ItemsSource="{Binding SampleItems}" HeightRequest="150"
                             Margin="0"
                             Header="{x:Static res:AppResources.Songs}">
                             <CollectionView.ItemTemplate>
@@ -69,7 +76,7 @@
                         like CollectionView items, so use a CollectionView items. -->
 
                     <Border StrokeThickness="2" Margin="0,10,0,0" Padding="10">
-                        <CollectionView ItemsSource="{Binding SampleItems}" HeightRequest="200" 
+                        <CollectionView ItemsSource="{Binding SampleItems}" HeightRequest="150" 
                             Margin="0"
                             Header="Songs">
                             <CollectionView.ItemTemplate>

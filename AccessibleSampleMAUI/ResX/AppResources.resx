@@ -130,7 +130,7 @@
     <value>OK</value>
   </data>
   <data name="PlayButtonClicked" xml:space="preserve">
-    <value>Play Button Clicked</value>
+    <value>Play Button Clicked.</value>
   </data>
   <data name="SongFirst" xml:space="preserve">
     <value>Here Comes the Sun</value>
