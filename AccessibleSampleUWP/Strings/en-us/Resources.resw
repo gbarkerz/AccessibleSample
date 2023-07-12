@@ -135,6 +135,9 @@
   <data name="InaccessiblePlayButton.Text" xml:space="preserve">
     <value>Play</value>
   </data>
+  <data name="NotAvailable" xml:space="preserve">
+    <value>Not available</value>
+  </data>
   <data name="PageHeading.Text" xml:space="preserve">
     <value>Button and Item Accessibility</value>
   </data>

@@ -53,12 +53,14 @@ namespace AccessibleSampleUWP
 
             this.sampleItems.Add(new SampleItem()
             {
-                Name = loader.GetString("SongFirst")
+                Name = loader.GetString("SongFirst"),
+                NotAvailable = true
             });
 
             this.sampleItems.Add(new SampleItem()
             {
-                Name = loader.GetString("SongSecond")
+                Name = loader.GetString("SongSecond"),
+                NotAvailable = false
             });
         }
     }
@@ -66,5 +68,17 @@ namespace AccessibleSampleUWP
     public class SampleItem
     {
         public string Name { get; set; }
+        public bool NotAvailable { get; set; }
+
+        public string SongItemAccessibleName
+        { 
+            get
+            {
+                var loader = new ResourceLoader();
+
+                // Assume fixed ordering of strings parts is acceptable.
+                return Name + (NotAvailable ? ", " + loader.GetString("NotAvailable") : "");
+            }
+        }
     }
 }

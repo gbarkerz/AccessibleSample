@@ -10,7 +10,12 @@
 
     <!-- Note: Use of AutomationProperties.AccessibilityView="Raw" is not included in this sample. -->
 
-    
+    <Page.Resources>
+        <ResourceDictionary>
+            <local:NotAvailableToText x:Key="NotAvailableToText" />
+        </ResourceDictionary>
+    </Page.Resources>
+
     <Grid Margin="10">
         
         <ScrollViewer Grid.Row="1">
@@ -64,19 +69,15 @@
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock Text="&#x1D161;">
-                                            <TextBlock.RenderTransform>
-                                                <ScaleTransform ScaleX="2.0" ScaleY="2.0" />
-                                            </TextBlock.RenderTransform>
-                                        </TextBlock>
-                                        
+                                        <Image Source="ms-appx:///Assets/musicnotes.svg" 
+                                            Width="40" Height="40" />
                                         <TextBlock Grid.Column="1" Text="{Binding Name}" 
-                                            Margin="16,0,0,0" VerticalAlignment="Center" />
-                                        
-                                        <Image Grid.Column="2" Source="ms-appx:///Assets/musicnotes.svg" 
-                                            Margin="0,0,10,0" Width="40" Height="40" />
+                                            Margin="0,0,4,0" VerticalAlignment="Center" />
+                                        <TextBlock Grid.Column="2" Text="{Binding NotAvailable, 
+                                            Converter={StaticResource NotAvailableToText}}"
+                                            VerticalAlignment="Center" />
                                     </Grid>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
@@ -120,23 +121,21 @@
                             Padding="10" Margin="0,10,0,0">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid AutomationProperties.Name="{Binding Name}">
+                                    
+                                    <!-- Often, using a single string proeprty would be sufficient here. -->
+                                    <Grid AutomationProperties.Name="{Binding SongItemAccessibleName}">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBlock Text="&#x1D161;">
-                                            <TextBlock.RenderTransform>
-                                                <ScaleTransform ScaleX="2.0" ScaleY="2.0" />
-                                            </TextBlock.RenderTransform>
-                                        </TextBlock>
-                                        
+                                        <Image Source="ms-appx:///Assets/musicnotes.svg" 
+                                            Width="40" Height="40" />
                                         <TextBlock Grid.Column="1" Text="{Binding Name}" 
-                                            Margin="16,0,0,0" VerticalAlignment="Center" />
-                                        
-                                        <Image Grid.Column="2" Source="ms-appx:///Assets/musicnotes.svg" 
-                                            Margin="0,0,10,0" Width="40" Height="40" />
+                                            Margin="0,0,4,0" VerticalAlignment="Center" />
+                                        <TextBlock Grid.Column="2" Text="{Binding NotAvailable, 
+                                            Converter={StaticResource NotAvailableToText}}"
+                                            VerticalAlignment="Center" />
                                     </Grid>
                                 </DataTemplate>
                             </ListView.ItemTemplate>

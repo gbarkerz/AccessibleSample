@@ -126,6 +126,9 @@
   <data name="InaccessibleControls" xml:space="preserve">
     <value>Inaccessible Controls</value>
   </data>
+  <data name="NotAvailable" xml:space="preserve">
+    <value>not available</value>
+  </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
@@ -133,7 +136,7 @@
     <value>Button and Item Accessibility</value>
   </data>
   <data name="PageSubheading" xml:space="preserve">
-    <value>This sample app demonstrates some fundamental steps relating to building UWP XAML apps that are more accessible to more people.</value>
+    <value>This sample app demonstrates some fundamental steps relating to building .NET MAUI apps that are more accessible to more people.</value>
   </data>
   <data name="PlayButtonClicked" xml:space="preserve">
     <value>Play Button Clicked.</value>

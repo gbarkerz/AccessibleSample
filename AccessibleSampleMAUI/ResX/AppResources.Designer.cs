@@ -88,6 +88,15 @@ namespace AccessibleSample.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to not available.
+        /// </summary>
+        internal static string NotAvailable {
+            get {
+                return ResourceManager.GetString("NotAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
         internal static string OK {
@@ -106,7 +115,7 @@ namespace AccessibleSample.ResX {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This sample app demonstrates some fundamental steps relating to building UWP XAML apps that are more accessible to more people..
+        ///   Looks up a localized string similar to This sample app demonstrates some fundamental steps relating to building .NET MAUI apps that are more accessible to more people..
         /// </summary>
         internal static string PageSubheading {
             get {

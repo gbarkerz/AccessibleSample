@@ -47,12 +47,14 @@ public class SampleItemViewModel
     {
         this.sampleItems.Add(new SampleItem()
         {
-            Name = AppResources.ResourceManager.GetString("SongFirst")
-        }); ;
+            Name = AppResources.ResourceManager.GetString("SongFirst"),
+            NotAvailable = true
+        });
 
         this.sampleItems.Add(new SampleItem()
         {
-            Name = AppResources.ResourceManager.GetString("SongSecond")
+            Name = AppResources.ResourceManager.GetString("SongSecond"),
+            NotAvailable = false
         });
     }
 }
@@ -60,5 +62,17 @@ public class SampleItemViewModel
 public class SampleItem
 {
     public string Name { get; set; }
+    public bool NotAvailable { get; set; }
+
+    public string SongItemAccessibleName
+    {
+        get
+        {
+            // Assume fixed ordering of strings parts is acceptable.
+            return Name + (NotAvailable ? 
+                ", " + AppResources.ResourceManager.GetString("NotAvailable") : "");
+        }
+    }
+
 }
 
