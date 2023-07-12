@@ -18,6 +18,7 @@
                 because the link is not keyboard focusable. Instead use a keyboard accessible Button. -->
 
             <Label Text="This sample app demonstrates some fundamental steps relating to building .NET MAUI apps that are more accessible to more people." />
+
             <Button Text="Visit the app ReadMe at Github" Clicked="ReadMeButton_Clicked"
                 HorizontalOptions="StartAndExpand" Margin="0,10,0,0"/>
             
@@ -35,16 +36,18 @@
                         WidthRequest="100" HeightRequest="100" />
 
                     <Border StrokeThickness="2" Margin="0,10,0,0" Padding="10">
-                        <CollectionView ItemsSource="{Binding SampleItems}" HeightRequest="150"
+                        <CollectionView ItemsSource="{Binding SampleItems}" HeightRequest="120"
                             Margin="0"
                             Header="{x:Static res:AppResources.Songs}">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
-                                    <HorizontalStackLayout Margin="10,10,10,0">
-                                        <Image Source="{AppThemeBinding Light=musicnotes_light.png, Dark=musicnotes_dark.png}"
+                                    <HorizontalStackLayout Margin="10,0,10,0">
+                                        <Label Text="&#x1D161;" FontSize="Large"
                                             VerticalOptions="Center" />
                                         <Label Text="{Binding Name}" 
-                                            Margin="10,0,0,0" VerticalOptions="Center" />
+                                            Margin="16,0,0,0" VerticalOptions="Center" />
+                                        <Image Source="{AppThemeBinding Light=musicnotes_light.png, Dark=musicnotes_dark.png}"
+                                            VerticalOptions="Center" />
                                     </HorizontalStackLayout>
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
@@ -76,7 +79,7 @@
                         like CollectionView items, so use a CollectionView items. -->
 
                     <Border StrokeThickness="2" Margin="0,10,0,0" Padding="10">
-                        <CollectionView ItemsSource="{Binding SampleItems}" HeightRequest="150" 
+                        <CollectionView ItemsSource="{Binding SampleItems}" HeightRequest="120" 
                             Margin="0"
                             Header="Songs">
                             <CollectionView.ItemTemplate>
@@ -85,11 +88,13 @@
                                         the list items UIA Name is the namespace and class. -->
                                     <HorizontalStackLayout 
                                         SemanticProperties.Description="{Binding Name}"
-                                        Margin="10,10,10,0">
-                                        <Image Source="{AppThemeBinding Light=musicnotes_light.png, Dark=musicnotes_dark.png}"
+                                        Margin="10,0,10,0">
+                                        <Label Text="&#x1D161;" FontSize="Large"
                                             VerticalOptions="Center" />
                                         <Label Text="{Binding Name}" 
-                                            Margin="10,0,0,0" VerticalOptions="Center" />
+                                            Margin="16,0,0,0" VerticalOptions="Center" />
+                                        <Image Source="{AppThemeBinding Light=musicnotes_light.png, Dark=musicnotes_dark.png}"
+                                            VerticalOptions="Center" />
                                     </HorizontalStackLayout>
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>

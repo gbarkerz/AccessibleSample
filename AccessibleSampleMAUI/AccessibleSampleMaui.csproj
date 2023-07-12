@@ -57,6 +57,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\musicnotes_dark.svg" />
 	  <None Remove="Resources\Images\musicnotes_light.svg" />
 	  <None Remove="Resources\Images\play_dark.svg" />
 	</ItemGroup>
