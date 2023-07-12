@@ -84,7 +84,7 @@
                             Header="Songs">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
-                                    <!-- Barker: With setting SemanticProperties.Description here, 
+                                    <!-- Barker: Without setting SemanticProperties.Description here, 
                                         the list items UIA Name is the namespace and class. -->
                                     <HorizontalStackLayout 
                                         SemanticProperties.Description="{Binding Name}"

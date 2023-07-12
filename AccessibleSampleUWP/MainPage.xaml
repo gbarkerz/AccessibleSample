@@ -60,11 +60,20 @@
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
-                                        <Image Source="ms-appx:///Assets/musicnotes.svg" 
-                                            Margin="0,10,10,0" Width="40" Height="40" />
-                                        <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" />
+                                        <TextBlock Text="&#x1D161;">
+                                            <TextBlock.RenderTransform>
+                                                <ScaleTransform ScaleX="2.0" ScaleY="2.0" />
+                                            </TextBlock.RenderTransform>
+                                        </TextBlock>
+                                        
+                                        <TextBlock Grid.Column="1" Text="{Binding Name}" 
+                                            Margin="16,0,0,0" VerticalAlignment="Center" />
+                                        
+                                        <Image Grid.Column="2" Source="ms-appx:///Assets/musicnotes.svg" 
+                                            Margin="0,0,10,0" Width="40" Height="40" />
                                     </Grid>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
@@ -110,12 +119,20 @@
                                     <Grid AutomationProperties.Name="{Binding Name}">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
-                                        <Image Source="ms-appx:///Assets/musicnotes.svg"
-                                            Margin="0,10,10,0" Width="40" Height="40" />
+                                        <TextBlock Text="&#x1D161;">
+                                            <TextBlock.RenderTransform>
+                                                <ScaleTransform ScaleX="2.0" ScaleY="2.0" />
+                                            </TextBlock.RenderTransform>
+                                        </TextBlock>
+                                        
                                         <TextBlock Grid.Column="1" Text="{Binding Name}" 
-                                            VerticalAlignment="Center" />
+                                            Margin="16,0,0,0" VerticalAlignment="Center" />
+                                        
+                                        <Image Grid.Column="2" Source="ms-appx:///Assets/musicnotes.svg" 
+                                            Margin="0,0,10,0" Width="40" Height="40" />
                                     </Grid>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
