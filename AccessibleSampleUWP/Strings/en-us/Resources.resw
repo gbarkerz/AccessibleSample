@@ -135,11 +135,23 @@
   <data name="InaccessiblePlayButton.Text" xml:space="preserve">
     <value>Play</value>
   </data>
+  <data name="PageHeading.Text" xml:space="preserve">
+    <value>Button and Item Accessibility</value>
+  </data>
+  <data name="PageSubheading.Text" xml:space="preserve">
+    <value>This sample app demonstrates some fundamental steps relating to building .NET MAUI apps that are more accessible to more people.</value>
+  </data>
   <data name="PauseButtonResponse" xml:space="preserve">
     <value>Pause button clicked.</value>
   </data>
   <data name="PlayButtonResponse" xml:space="preserve">
     <value>Play button clicked.</value>
+  </data>
+  <data name="ReadmeLinkURL.Content" xml:space="preserve">
+    <value>Visit the app ReadMe at Github</value>
+  </data>
+  <data name="ReadMeLinkURL.NavigateUri" xml:space="preserve">
+    <value>https://github.com/gbarkerz/AccessibleSample/blob/master/README.md"</value>
   </data>
   <data name="SongFirst" xml:space="preserve">
     <value>Here Comes the Sun</value>

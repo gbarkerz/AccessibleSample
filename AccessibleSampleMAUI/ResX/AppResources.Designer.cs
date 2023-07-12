@@ -97,11 +97,38 @@ namespace AccessibleSample.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Button and Item Accessibility.
+        /// </summary>
+        internal static string PageHeading {
+            get {
+                return ResourceManager.GetString("PageHeading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This sample app demonstrates some fundamental steps relating to building UWP XAML apps that are more accessible to more people..
+        /// </summary>
+        internal static string PageSubheading {
+            get {
+                return ResourceManager.GetString("PageSubheading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Play Button Clicked..
         /// </summary>
         internal static string PlayButtonClicked {
             get {
                 return ResourceManager.GetString("PlayButtonClicked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visit the app ReadMe at Github.
+        /// </summary>
+        internal static string ReadMeButtonLabel {
+            get {
+                return ResourceManager.GetString("ReadMeButtonLabel", resourceCulture);
             }
         }
         

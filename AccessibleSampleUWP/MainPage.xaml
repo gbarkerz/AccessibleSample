@@ -16,10 +16,13 @@
         <ScrollViewer Grid.Row="1">
             <StackPanel>
 
-                <TextBlock Text="This sample app demonstrates some fundamental steps relating to building UWP XAML apps that are more accessible to more people."
+                <TextBlock x:Uid="PageHeading"
+                    AutomationProperties.HeadingLevel="1" 
+                    Style="{StaticResource SubtitleTextBlockStyle}" />
+
+                <TextBlock x:Uid="PageSubheading"
                     TextWrapping="Wrap" />
-                <HyperlinkButton Content="Visit the app ReadMe at Github" 
-                    NavigateUri="https://github.com/gbarkerz/AccessibleSample/blob/master/README.md" 
+                <HyperlinkButton x:Uid="ReadMeLinkURL"
                     Margin="10,10,0,0" Padding="4,0,4,0" />
 
                 <Border x:Name="InaccessibleGroupBorder"
@@ -28,7 +31,7 @@
 
                     <StackPanel Margin="10">
 
-                        <TextBlock 
+                        <TextBlock AutomationProperties.HeadingLevel="2"
                             Name="InaccessibleControlsGroupLabel" 
                             Text="Inaccessible Controls" />
 
@@ -88,7 +91,8 @@
                     
                     <StackPanel Margin="10">
 
-                        <TextBlock Name="AccessibleControlsGroupLabel" Text="Accessible Controls" />
+                        <TextBlock AutomationProperties.HeadingLevel="2"
+                            Name="AccessibleControlsGroupLabel" Text="Accessible Controls" />
 
                         <StackPanel Orientation="Horizontal">
 
