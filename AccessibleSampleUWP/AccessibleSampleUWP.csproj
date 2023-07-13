@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\contrast-standard\theme-dark\musicnotes.svg" />
+    <Content Include="Assets\contrast-standard\theme-light\crowd.svg" />
     <Content Include="Assets\contrast-standard\theme-light\musicnotes.svg" />
     <Content Include="Assets\contrast-standard\theme-light\pause.svg" />
     <Content Include="Assets\contrast-standard\theme-light\play.svg" />

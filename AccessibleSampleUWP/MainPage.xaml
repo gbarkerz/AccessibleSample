@@ -40,9 +40,39 @@
                             Name="InaccessibleControlsGroupLabel" 
                             Text="Inaccessible Controls" />
 
-                        <StackPanel Orientation="Horizontal">
-                            
-                            <Button Click="PlayButton_Click"
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <ListView x:Uid="InaccessibleListFestivals" ItemsSource="{x:Bind ViewModel.SampleItemsFestivals}" 
+                                BorderBrush="{ThemeResource ButtonBorderThemeBrush}"
+                                BorderThickness="1"
+                                Padding="10" Margin="0,10,10,0">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="ms-appx:///Assets/crowd.svg"
+                                                Width="50" Height="40" VerticalAlignment="Center" 
+                                                Margin="0,10,0,0"/>
+                                            <TextBlock Grid.Column="1" Text="{Binding Name}"
+                                                VerticalAlignment="Center" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                            <Button Grid.Column="1" Click="PlayButton_Click"
                                 Margin="0,10,0,0">
                                 <StackPanel Orientation="Horizontal">
                                     <Image Source="ms-appx:///Assets/play.svg" Width="60" Height="60" />
@@ -52,14 +82,15 @@
                                 </StackPanel>
                             </Button>
 
-                            <Button Click="PauseButton_Click" Margin="10,10,0,0">
+                            <Button Grid.Column="2" Click="PauseButton_Click" Margin="10,10,0,0">
                                 <Image Source="ms-appx:///Assets/pause.svg"                                
                                     Width="60" Height="60" />
                             </Button>
 
-                        </StackPanel>
+                        </Grid>
 
-                        <ListView x:Uid="InaccessibleList" ItemsSource="{x:Bind ViewModel.SampleItems}" 
+                        <ListView Grid.Row="1" x:Uid="InaccessibleListSongs" 
+                            ItemsSource="{x:Bind ViewModel.SampleItemsSongs}" 
                             BorderBrush="{ThemeResource ButtonBorderThemeBrush}"
                             BorderThickness="1"
                             Padding="10" Margin="0,10,0,0">
@@ -95,9 +126,39 @@
                         <TextBlock AutomationProperties.HeadingLevel="2"
                             Name="AccessibleControlsGroupLabel" Text="Accessible Controls" />
 
-                        <StackPanel Orientation="Horizontal">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
 
-                            <Button Click="PlayButton_Click"
+                            <ListView x:Uid="AccessibleListFestivals" ItemsSource="{x:Bind ViewModel.SampleItemsFestivals}" 
+                                BorderBrush="{ThemeResource ButtonBorderThemeBrush}"
+                                BorderThickness="1"
+                                Padding="10,10,0,0" Margin="0,10,10,0">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid AutomationProperties.Name="{Binding Name}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="ms-appx:///Assets/crowd.svg"
+                                                Width="50" Height="40" VerticalAlignment="Center" 
+                                                Margin="0,10,0,0"/>
+                                            <TextBlock Grid.Column="1" Text="{Binding Name}"
+                                                VerticalAlignment="Center" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                            <Button Grid.Column="1" Click="PlayButton_Click"
                                 Margin="0,10,0,0" 
                                 AutomationProperties.LabeledBy="{Binding ElementName=AccessibleButtonTextBlock}">
                                 <StackPanel Orientation="Horizontal">
@@ -108,21 +169,22 @@
                                 </StackPanel>
                             </Button>
 
-                            <Button x:Uid="AccessiblePauseButton" Click="PauseButton_Click"
+                            <Button Grid.Column="2" x:Uid="AccessiblePauseButton" Click="PauseButton_Click"
                                 Margin="10,10,0,0">
                                 <Image Source="ms-appx:///Assets/pause.svg" Width="60" Height="60" />
                             </Button>
 
-                        </StackPanel>
-                        
-                        <ListView x:Uid="AccessibleList" ItemsSource="{x:Bind ViewModel.SampleItems}" 
+                        </Grid>
+
+                        <ListView x:Uid="AccessibleListSongs" ItemsSource="{x:Bind ViewModel.SampleItemsSongs}" 
                             BorderBrush="{ThemeResource ButtonBorderThemeBrush}"
                             BorderThickness="1"
                             Padding="10" Margin="0,10,0,0">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     
-                                    <!-- Often, using a single string proeprty would be sufficient here. -->
+                                    <!-- Often, using a single string property would be sufficient here. 
+                                       Note that UIA might propagate a single text string up to be the item's UIA name. -->
                                     <Grid AutomationProperties.Name="{Binding SongItemAccessibleName}">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>

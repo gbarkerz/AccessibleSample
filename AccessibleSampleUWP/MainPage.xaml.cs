@@ -44,20 +44,33 @@ namespace AccessibleSampleUWP
 
     public class SampleItemViewModel
     {
-        private ObservableCollection<SampleItem> sampleItems = new ObservableCollection<SampleItem>();
-        public ObservableCollection<SampleItem> SampleItems { get { return this.sampleItems; } }
+        private ObservableCollection<SampleItemFestival> sampleItemsFestivals = new ObservableCollection<SampleItemFestival>();
+        public ObservableCollection<SampleItemFestival> SampleItemsFestivals { get { return this.sampleItemsFestivals; } }
+
+        private ObservableCollection<SampleItemSong> sampleItemsSongs = new ObservableCollection<SampleItemSong>();
+        public ObservableCollection<SampleItemSong> SampleItemsSongs { get { return this.sampleItemsSongs; } }
 
         public SampleItemViewModel()
         {
             var loader = new ResourceLoader();
 
-            this.sampleItems.Add(new SampleItem()
+            this.sampleItemsFestivals.Add(new SampleItemFestival()
+            {
+                Name = loader.GetString("FestivalFirst")
+            });
+
+            this.sampleItemsFestivals.Add(new SampleItemFestival()
+            {
+                Name = loader.GetString("FestivalSecond")
+            });
+
+            this.sampleItemsSongs.Add(new SampleItemSong()
             {
                 Name = loader.GetString("SongFirst"),
                 NotAvailable = true
             });
 
-            this.sampleItems.Add(new SampleItem()
+            this.sampleItemsSongs.Add(new SampleItemSong()
             {
                 Name = loader.GetString("SongSecond"),
                 NotAvailable = false
@@ -65,13 +78,18 @@ namespace AccessibleSampleUWP
         }
     }
 
-    public class SampleItem
+    public class SampleItemFestival
+    {
+        public string Name { get; set; }
+    }
+
+    public class SampleItemSong
     {
         public string Name { get; set; }
         public bool NotAvailable { get; set; }
 
         public string SongItemAccessibleName
-        { 
+        {
             get
             {
                 var loader = new ResourceLoader();

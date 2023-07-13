@@ -117,7 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AccessibleList.Header" xml:space="preserve">
+  <data name="AccessibleListFestivals.Header" xml:space="preserve">
+    <value>Festivals</value>
+  </data>
+  <data name="AccessibleListSongs.Header" xml:space="preserve">
     <value>Songs</value>
   </data>
   <data name="AccessiblePauseButton.AutomationProperties.Name" xml:space="preserve">
@@ -129,7 +132,16 @@
   <data name="AppName" xml:space="preserve">
     <value>Accessible Sample</value>
   </data>
-  <data name="InaccessibleList.Header" xml:space="preserve">
+  <data name="FestivalFirst" xml:space="preserve">
+    <value>Blue Dot</value>
+  </data>
+  <data name="FestivalSecond" xml:space="preserve">
+    <value>Rewind North</value>
+  </data>
+  <data name="InaccessibleListFestivals.Header" xml:space="preserve">
+    <value>Festivals</value>
+  </data>
+  <data name="InaccessibleListSongs.Header" xml:space="preserve">
     <value>Songs</value>
   </data>
   <data name="InaccessiblePlayButton.Text" xml:space="preserve">
