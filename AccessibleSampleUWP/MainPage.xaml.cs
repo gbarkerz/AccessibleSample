@@ -94,8 +94,20 @@ namespace AccessibleSampleUWP
             {
                 var loader = new ResourceLoader();
 
-                // Assume fixed ordering of strings parts is acceptable.
-                return Name + (NotAvailable ? ", " + loader.GetString("NotAvailable") : "");
+                string accessibleName;
+
+                if (NotAvailable)
+                {
+                    accessibleName = String.Format(loader.GetString("SampleItemSongAccessibleNotAvailableFormat"),
+                                                   Name,
+                                                   loader.GetString("NotAvailable"));
+                }
+                else
+                {
+                    accessibleName = Name;
+                }
+
+                return accessibleName;
             }
         }
     }
