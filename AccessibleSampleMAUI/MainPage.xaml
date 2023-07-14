@@ -54,7 +54,8 @@
                                     <DataTemplate>
                                         <HorizontalStackLayout Margin="10,0,0,0">
                                             <Image Source="{AppThemeBinding Light=crowd_light.png, Dark=crowd_dark.png}"
-                                                Margin="0,10,0,0" VerticalOptions="Center" />
+                                                Margin="0,10,0,0" VerticalOptions="Center"
+                                                WidthRequest="60" HeightRequest="40" />
                                             <Label Text="{Binding Name}" Margin="0,0,10,0"
                                                 VerticalOptions="Center" />
                                         </HorizontalStackLayout>
@@ -66,7 +67,7 @@
                         <ImageButton Grid.Column="1" 
                             Source="{AppThemeBinding Light=play_light.png, Dark=play_dark.png}"                        
                             Clicked="PlayButton_Clicked"
-                            Margin="10,10,0,0" WidthRequest="100" HeightRequest="140" />
+                            Margin="10,0,0,0" WidthRequest="100" HeightRequest="140" />
 
                     </Grid>
 
@@ -120,7 +121,8 @@
                                             SemanticProperties.Description="{Binding Name}"
                                             Margin="10,0,0,0">
                                             <Image Source="{AppThemeBinding Light=crowd_light.png, Dark=crowd_dark.png}"
-                                                Margin="0,10,0,0" VerticalOptions="Center" />
+                                                Margin="0,10,0,0" VerticalOptions="Center"
+                                                WidthRequest="60" HeightRequest="40" />
                                             <Label Text="{Binding Name}" Margin="0,0,10,0"
                                                 VerticalOptions="Center" />
                                         </HorizontalStackLayout>
