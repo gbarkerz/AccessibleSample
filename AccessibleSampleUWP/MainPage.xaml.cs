@@ -9,17 +9,19 @@ namespace AccessibleSampleUWP
 {
     public sealed partial class MainPage : Page
     {
+        public SampleItemViewModel ViewModel { get; set; }
+
         public MainPage()
         {
             this.InitializeComponent();
 
             this.ViewModel = new SampleItemViewModel();
 
+            // Ensure that the border around the controls groups has a strong contrast against
+            // its background, regardless of whether the app is shown in light or dark mode.
             InaccessibleGroupBorder.BorderBrush = this.Foreground;
             AccessibleGroupBorder.BorderBrush = this.Foreground;
         }
-
-        public SampleItemViewModel ViewModel { get; set; }
 
         private async void PlayButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {

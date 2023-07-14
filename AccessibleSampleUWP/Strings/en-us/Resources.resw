@@ -166,7 +166,7 @@
     <value>Visit the app ReadMe at Github</value>
   </data>
   <data name="ReadMeLinkURL.NavigateUri" xml:space="preserve">
-    <value>https://github.com/gbarkerz/AccessibleSample/blob/master/README.md"</value>
+    <value>https://github.com/gbarkerz/AccessibleSample/blob/master/README.md</value>
   </data>
   <data name="SampleItemSongAccessibleNotAvailableFormat" xml:space="preserve">
     <value>{0}, {1}</value>

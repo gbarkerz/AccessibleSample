@@ -14,6 +14,7 @@ namespace AccessibleSampleUWP
         {
             var notAvailable = (bool)value;
 
+            // Show a No Entry icon for unavailable items.
             return notAvailable ? "\u26D4" : "";
         }
 

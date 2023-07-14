@@ -8,8 +8,6 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <!-- Note: Use of AutomationProperties.AccessibilityView="Raw" is not included in this sample. -->
-
     <Page.Resources>
         <ResourceDictionary>
             <local:NotAvailableToText x:Key="NotAvailableToText" />
@@ -30,6 +28,9 @@
                 <HyperlinkButton x:Uid="ReadMeLinkURL"
                     Margin="10,10,0,0" Padding="4,0,4,0" />
 
+                <!-- First present a group of controls which contain Buttons and Items
+                     whose accessible names are either missing or meaningless. -->
+                
                 <Border x:Name="InaccessibleGroupBorder"
                     AutomationProperties.LabeledBy="{Binding ElementName=InaccessibleControlsGroupLabel}"
                     BorderThickness="2" Margin="0,10,0,0">
@@ -117,6 +118,9 @@
                     </StackPanel>
                 </Border>
 
+                <!-- Next present a group of controls which contain Buttons and Items
+                     whose accessible names are helpful to users. -->
+
                 <Border x:Name="AccessibleGroupBorder" 
                     AutomationProperties.LabeledBy="{Binding ElementName=AccessibleControlsGroupLabel}"
                     BorderThickness="2" Margin="0,10,0,0">
@@ -137,12 +141,26 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
-                            <ListView x:Uid="AccessibleListFestivals" ItemsSource="{x:Bind ViewModel.SampleItemsFestivals}" 
+                            <!-- *** Accessible Sample *** 
+                                 This ListView contains Items which contain an image and text. The contained image is 
+                                 purely decorative and conveys no useful information for users. As such, each Item's 
+                                 accessible name can be set only from the text contained within the item. This means 
+                                 that as users arrow down through the Items, screen readers will announce that text, 
+                                 and users are informed of all the useful information associated with the Item. -->
+                            
+                            <ListView x:Uid="AccessibleListFestivals" 
+                                ItemsSource="{x:Bind ViewModel.SampleItemsFestivals}" 
                                 BorderBrush="{ThemeResource ButtonBorderThemeBrush}"
                                 BorderThickness="1"
                                 Padding="10,10,0,0" Margin="0,10,10,0">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
+
+                                        <!-- *** Accessible Sample *** 
+                                             By binding the Item's AutomationProperties.Name property here to the same 
+                                             datasource class Name property used for the text shown within the Item, 
+                                             the Item's accessible name gets set as required for screen readers. -->
+                                        
                                         <Grid AutomationProperties.Name="{Binding Name}">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto"/>
@@ -158,9 +176,18 @@
                                 </ListView.ItemTemplate>
                             </ListView>
 
-                            <Button Grid.Column="1" Click="PlayButton_Click"
-                                Margin="0,10,0,0" 
-                                AutomationProperties.LabeledBy="{Binding ElementName=AccessibleButtonTextBlock}">
+                            <!-- *** Accessible Sample *** 
+                                 This Button contains an image and text. While the image conveys information relating to 
+                                 the purpose of the Button, that information is repeated by the always-present text also 
+                                 contained in the Button. As such, the Button's accessible name can be set from the text 
+                                 contained within the Button, and the user will be fully informed of the purpose of the 
+                                 Button. This can be achieved by having the Button's AutomationProperties.LabeledBy 
+                                 reference the TextBlock contained within the Button. -->
+                            
+                            <Button Grid.Column="1"
+                                AutomationProperties.LabeledBy="{Binding ElementName=AccessibleButtonTextBlock}"
+                                Click="PlayButton_Click"
+                                Margin="0,10,0,0">
                                 <StackPanel Orientation="Horizontal">
                                     <Image Source="ms-appx:///Assets/play.svg" Width="60" Height="60" />
                                     <TextBlock x:Uid="AccessiblePlayButton" Name="AccessibleButtonTextBlock" 
@@ -169,6 +196,12 @@
                                 </StackPanel>
                             </Button>
 
+                            <!-- *** Accessible Sample *** 
+                                 This Button contains only an image which conveys the purpose of the Button. Given that 
+                                 the purpose of the Button never changes, its accessible name can be set from a fixed 
+                                 localizable string. This can be achieved by setting an x:Uid on the Button, and adding 
+                                 a string resource whose Name is <Button's x:Uid>.AutomationProperties.Name. -->
+
                             <Button Grid.Column="2" x:Uid="AccessiblePauseButton" Click="PauseButton_Click"
                                 Margin="10,10,0,0">
                                 <Image Source="ms-appx:///Assets/pause.svg" Width="60" Height="60" />
@@ -176,15 +209,27 @@
 
                         </Grid>
 
-                        <ListView x:Uid="AccessibleListSongs" ItemsSource="{x:Bind ViewModel.SampleItemsSongs}" 
+                        <!-- *** Accessible Sample *** 
+                             This ListView contains Items which contain an image, text, and an icon (which is implemented
+                             using a font glyph). The contained image is purely decorative and conveys no useful information 
+                             for users. However, the icon does convey important information relating to the Item, and so 
+                             each Item's accessible name should be built up using both the text and icon contained within 
+                             the item. This means that as users arrow down through the Items, screen readers will announce 
+                             all the useful information associated with the Item. -->
+
+                        <ListView x:Uid="AccessibleListSongs" 
+                            ItemsSource="{x:Bind ViewModel.SampleItemsSongs}" 
                             BorderBrush="{ThemeResource ButtonBorderThemeBrush}"
                             BorderThickness="1"
                             Padding="10" Margin="0,10,0,0">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    
-                                    <!-- Often, using a single string property would be sufficient here. 
-                                       Note that UIA might propagate a single text string up to be the item's UIA name. -->
+
+                                    <!-- *** Accessible Sample *** 
+                                         The datasource class has a SongItemAccessibleName property which contains the 
+                                         localizable accessible name which conveys all the important information associated
+                                         with each Item. -->
+
                                     <Grid AutomationProperties.Name="{Binding SongItemAccessibleName}">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
