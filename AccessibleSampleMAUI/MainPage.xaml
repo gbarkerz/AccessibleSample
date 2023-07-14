@@ -40,12 +40,34 @@
                     <Label SemanticProperties.HeadingLevel="Level2"
                         Text="{x:Static res:AppResources.InaccessibleControls}" />
 
-                    <ImageButton
-                        Source="{AppThemeBinding Light=play_light.png, Dark=play_dark.png}"                        
-                        Clicked="PlayButton_Clicked"
-                        Margin="0,10,0,0"
-                        HorizontalOptions="Start"
-                        WidthRequest="100" HeightRequest="100" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton
+                            Source="{AppThemeBinding Light=play_light.png, Dark=play_dark.png}"                        
+                            Clicked="PlayButton_Clicked"
+                            WidthRequest="100" HeightRequest="140" />
+
+                        <Border Grid.Column="1" Margin="10,0,0,0" Padding="10">
+                            <CollectionView 
+                                ItemsSource="{Binding SampleItemsFestivals}"
+                                Header="{x:Static res:AppResources.Festivals}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <HorizontalStackLayout Margin="10,0,0,0">
+                                            <Image Source="{AppThemeBinding Light=crowd_light.png, Dark=crowd_dark.png}"
+                                                Margin="0,10,0,0" VerticalOptions="Center" />
+                                            <Label Text="{Binding Name}" Margin="0,0,10,0"
+                                                VerticalOptions="Center" />
+                                        </HorizontalStackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </Border>
+                    </Grid>
 
                     <Border StrokeThickness="2" Margin="0,10,0,0" Padding="10">
                         <CollectionView ItemsSource="{Binding SampleItems}" HeightRequest="120"
@@ -81,13 +103,38 @@
                     <Label  SemanticProperties.HeadingLevel="Level2"
                         Text="{x:Static res:AppResources.AccessibleControls}" />
 
-                    <ImageButton 
-                        Source="{AppThemeBinding Light=play_light.png, Dark=play_dark.png}"                        
-                        Clicked="PlayButton_Clicked"
-                        SemanticProperties.Description="Play"
-                        Margin="0,10,0,0" 
-                        HorizontalOptions="Start"
-                        WidthRequest="100" HeightRequest="100" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton
+                            Source="{AppThemeBinding Light=play_light.png, Dark=play_dark.png}"                        
+                            Clicked="PlayButton_Clicked"
+                            SemanticProperties.Description="Play"
+                            WidthRequest="100" HeightRequest="140" />
+
+                        <Border Grid.Column="1" Margin="10,0,0,0" Padding="10">
+                            <CollectionView 
+                                ItemsSource="{Binding SampleItemsFestivals}"
+                                Header="{x:Static res:AppResources.Festivals}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <HorizontalStackLayout 
+                                            SemanticProperties.Description="{Binding Name}"
+                                            Margin="10,0,0,0">
+                                            <Image Source="{AppThemeBinding Light=crowd_light.png, Dark=crowd_dark.png}"
+                                                Margin="0,10,0,0" VerticalOptions="Center" />
+                                            <Label Text="{Binding Name}" Margin="0,0,10,0"
+                                                VerticalOptions="Center" />
+                                        </HorizontalStackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </Border>
+                    </Grid>
+
 
                     <!-- Barker: ListView items don't seem to get their UIA Name properties set 
                         like CollectionView items, so use a CollectionView items. -->

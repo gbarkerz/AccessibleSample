@@ -79,6 +79,33 @@ namespace AccessibleSample.ResX {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Blue Dot.
+        /// </summary>
+        internal static string FestivalFirst {
+            get {
+                return ResourceManager.GetString("FestivalFirst", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Festivals.
+        /// </summary>
+        internal static string Festivals {
+            get {
+                return ResourceManager.GetString("Festivals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rewind North.
+        /// </summary>
+        internal static string FestivalSecond {
+            get {
+                return ResourceManager.GetString("FestivalSecond", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Inaccessible Controls.
         /// </summary>
         internal static string InaccessibleControls {
@@ -138,6 +165,15 @@ namespace AccessibleSample.ResX {
         internal static string ReadMeButtonLabel {
             get {
                 return ResourceManager.GetString("ReadMeButtonLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}, {1}.
+        /// </summary>
+        internal static string SampleItemSongAccessibleNotAvailableFormat {
+            get {
+                return ResourceManager.GetString("SampleItemSongAccessibleNotAvailableFormat", resourceCulture);
             }
         }
         

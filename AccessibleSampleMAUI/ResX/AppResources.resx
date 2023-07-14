@@ -123,6 +123,15 @@
   <data name="AppName" xml:space="preserve">
     <value>Accessible Sample</value>
   </data>
+  <data name="FestivalFirst" xml:space="preserve">
+    <value>Blue Dot</value>
+  </data>
+  <data name="Festivals" xml:space="preserve">
+    <value>Festivals</value>
+  </data>
+  <data name="FestivalSecond" xml:space="preserve">
+    <value>Rewind North</value>
+  </data>
   <data name="InaccessibleControls" xml:space="preserve">
     <value>Inaccessible Controls</value>
   </data>
@@ -143,6 +152,9 @@
   </data>
   <data name="ReadMeButtonLabel" xml:space="preserve">
     <value>Visit the app ReadMe at Github</value>
+  </data>
+  <data name="SampleItemSongAccessibleNotAvailableFormat" xml:space="preserve">
+    <value>{0}, {1}</value>
   </data>
   <data name="SongFirst" xml:space="preserve">
     <value>Here Comes the Sun</value>

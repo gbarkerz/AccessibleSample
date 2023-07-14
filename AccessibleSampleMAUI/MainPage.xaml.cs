@@ -40,11 +40,24 @@ public partial class MainPage : ContentPage
 
 public class SampleItemViewModel
 {
+    private ObservableCollection<SampleItemFestival> sampleItemsFestivals = new ObservableCollection<SampleItemFestival>();
+    public ObservableCollection<SampleItemFestival> SampleItemsFestivals { get { return this.sampleItemsFestivals; } }
+
     private ObservableCollection<SampleItem> sampleItems = new ObservableCollection<SampleItem>();
     public ObservableCollection<SampleItem> SampleItems { get { return this.sampleItems; } }
 
     public SampleItemViewModel()
     {
+        this.sampleItemsFestivals.Add(new SampleItemFestival()
+        {
+            Name = AppResources.ResourceManager.GetString("FestivalFirst")
+        });
+
+        this.sampleItemsFestivals.Add(new SampleItemFestival()
+        {
+            Name = AppResources.ResourceManager.GetString("FestivalSecond")
+        });
+
         this.sampleItems.Add(new SampleItem()
         {
             Name = AppResources.ResourceManager.GetString("SongFirst"),
@@ -59,6 +72,11 @@ public class SampleItemViewModel
     }
 }
 
+public class SampleItemFestival
+{
+    public string Name { get; set; }
+}
+
 public class SampleItem
 {
     public string Name { get; set; }
@@ -68,11 +86,23 @@ public class SampleItem
     {
         get
         {
-            // Assume fixed ordering of strings parts is acceptable.
-            return Name + (NotAvailable ? 
-                ", " + AppResources.ResourceManager.GetString("NotAvailable") : "");
+            string accessibleName;
+
+            if (NotAvailable)
+            {
+                var resManager = AppResources.ResourceManager;
+
+                accessibleName = String.Format(resManager.GetString("SampleItemSongAccessibleNotAvailableFormat"),
+                                               Name,
+                                               resManager.GetString("NotAvailable"));
+            }
+            else
+            {
+                accessibleName = Name;
+            }
+
+            return accessibleName;
         }
     }
-
 }
 
