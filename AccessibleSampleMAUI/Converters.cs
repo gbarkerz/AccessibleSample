@@ -9,6 +9,7 @@ public class NotAvailableToText : IValueConverter
     {
         var notAvailable = (bool)value;
 
+        // Show a red 'X' icon for unavailable items.
         return notAvailable ? "\u274C" : "";
     }
 

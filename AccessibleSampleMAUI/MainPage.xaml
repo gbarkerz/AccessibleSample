@@ -23,16 +23,16 @@
                 FontSize="Subtitle" 
                 Text="{x:Static res:AppResources.PageHeading}" />
 
-            <!-- For hyperlinks, do not us the tappable Label approach at 
-                https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/label#create-a-hyperlink
-                because the link is not keyboard focusable. Instead use a keyboard accessible Button. -->
-
             <Label Text="{x:Static res:AppResources.PageSubheading}" />
 
             <Button Text="{x:Static res:AppResources.ReadMeButtonLabel}" 
                 Clicked="ReadMeButton_Clicked"
-                HorizontalOptions="StartAndExpand" Margin="0,10,0,0"/>
-            
+                HorizontalOptions="StartAndExpand" 
+                Margin="0,10,0,0"/>
+
+            <!-- First present a group of controls which contain a Button and Items
+                 whose accessible names are either missing or meaningless. -->
+
             <Border StrokeThickness="2" Margin="0,10,0,0">
 
                 <StackLayout Margin="10">
@@ -47,16 +47,18 @@
                         </Grid.ColumnDefinitions>
 
                         <Border Margin="0,10,0,0" Padding="10">
-                            <CollectionView 
-                                ItemsSource="{Binding SampleItemsFestivals}"
+                            <CollectionView ItemsSource="{Binding SampleItemsFestivals}"
                                 Header="{x:Static res:AppResources.Festivals}">
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>
                                         <HorizontalStackLayout Margin="10,0,0,0">
                                             <Image Source="{AppThemeBinding Light=crowd_light.png, Dark=crowd_dark.png}"
-                                                Margin="0,10,0,0" VerticalOptions="Center"
-                                                WidthRequest="60" HeightRequest="40" />
-                                            <Label Text="{Binding Name}" Margin="0,0,10,0"
+                                                Margin="0,10,0,0" 
+                                                VerticalOptions="Center"
+                                                WidthRequest="60" 
+                                                HeightRequest="40" />
+                                            <Label Text="{Binding Name}" 
+                                                Margin="0,0,10,0"
                                                 VerticalOptions="Center" />
                                         </HorizontalStackLayout>
                                     </DataTemplate>
@@ -67,14 +69,19 @@
                         <ImageButton Grid.Column="1" 
                             Source="{AppThemeBinding Light=play_light.png, Dark=play_dark.png}"                        
                             Clicked="PlayButton_Clicked"
-                            Margin="10,0,0,0" WidthRequest="100" HeightRequest="140" />
+                            Margin="10,0,0,0" 
+                            WidthRequest="100" 
+                            HeightRequest="140" />
 
                     </Grid>
 
-                    <Border StrokeThickness="2" Margin="0,10,0,0" Padding="10">
-                        <CollectionView ItemsSource="{Binding SampleItems}" HeightRequest="120"
-                            Margin="0"
-                            Header="{x:Static res:AppResources.Songs}">
+                    <Border StrokeThickness="2" 
+                        Margin="0,10,0,0" 
+                        Padding="10">
+                        <CollectionView ItemsSource="{Binding SampleItems}" 
+                            Header="{x:Static res:AppResources.Songs}"
+                            HeightRequest="120"
+                            Margin="0">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <HorizontalStackLayout Margin="10,0,0,0">
@@ -82,9 +89,9 @@
                                             VerticalOptions="Center" />
                                         <Label Text="{Binding Name}" 
                                             VerticalOptions="Center" />
-                                        <Label Text="{Binding NotAvailable, 
-                                            Converter={StaticResource NotAvailableToText}}"
-                                            Margin="8,0,0,0" VerticalOptions="Center" />
+                                        <Label Text="{Binding NotAvailable, Converter={StaticResource NotAvailableToText}}"
+                                            Margin="8,0,0,0" 
+                                            VerticalOptions="Center" />
                                     </HorizontalStackLayout>
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
@@ -94,15 +101,14 @@
 
             </Border>
 
-            <!-- Barker: Note that setting a SemanticProperties.Hint and 
-                    AutomationProperties.IsInAccessibleTree="True" on a StackLayout or Border
-                    does not get it exposed through UIA. -->
+            <!-- Next present a group of controls which contains a Button and Items
+                 whose accessible names are helpful to users. -->
 
             <Border StrokeThickness="2" Margin="0,10,0,0">
 
                 <StackLayout Margin="10">
 
-                    <Label  SemanticProperties.HeadingLevel="Level2"
+                    <Label SemanticProperties.HeadingLevel="Level2"
                         Text="{x:Static res:AppResources.AccessibleControls}" />
 
                     <Grid>
@@ -112,18 +118,33 @@
                         </Grid.ColumnDefinitions>
 
                         <Border Margin="0,10,0,0" Padding="10">
-                            <CollectionView 
-                                ItemsSource="{Binding SampleItemsFestivals}"
+
+                            <!-- *** Accessible Sample *** 
+                                 This CollectionView contains Items which contain an image and text. The contained image 
+                                 is purely decorative and conveys no useful information for users. As such, each Item's 
+                                 accessible name can be set only from the text contained within the item. This means 
+                                 that as users arrow down through the Items, screen readers will announce that text, 
+                                 and users are informed of all the useful information associated with the Item. -->
+
+                            <CollectionView ItemsSource="{Binding SampleItemsFestivals}"
                                 Header="{x:Static res:AppResources.Festivals}">
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>
-                                        <HorizontalStackLayout 
-                                            SemanticProperties.Description="{Binding Name}"
+
+                                        <!-- *** Accessible Sample *** 
+                                             By binding the Item's SemanticProperties.Description property here to the 
+                                             same datasource Name property used for the text shown within the Item, the
+                                             Item's accessible name gets set as required for screen readers. -->
+
+                                        <HorizontalStackLayout SemanticProperties.Description="{Binding Name}"
                                             Margin="10,0,0,0">
                                             <Image Source="{AppThemeBinding Light=crowd_light.png, Dark=crowd_dark.png}"
-                                                Margin="0,10,0,0" VerticalOptions="Center"
-                                                WidthRequest="60" HeightRequest="40" />
-                                            <Label Text="{Binding Name}" Margin="0,0,10,0"
+                                                Margin="0,10,0,0" 
+                                                VerticalOptions="Center"
+                                                WidthRequest="60" 
+                                                HeightRequest="40" />
+                                            <Label Text="{Binding Name}" 
+                                                Margin="0,0,10,0"
                                                 VerticalOptions="Center" />
                                         </HorizontalStackLayout>
                                     </DataTemplate>
@@ -131,34 +152,53 @@
                             </CollectionView>
                         </Border>
 
+                        <!-- *** Accessible Sample *** 
+                             This Button (implemented as an ImageButton) contains only an image which conveys 
+                             the purpose of the Button. Given that the purpose of the Button never changes, its 
+                             accessible name can be set from a fixed localizable string. This can be achieved 
+                             by binding the Button's SemanticProperties.Description to a localizable string resource. -->
+
                         <ImageButton Grid.Column="1" 
+                            SemanticProperties.Description="{x:Static res:AppResources.Play}"
                             Source="{AppThemeBinding Light=play_light.png, Dark=play_dark.png}"                        
                             Clicked="PlayButton_Clicked"
-                            SemanticProperties.Description="Play"
-                            Margin="10,10,0,0" WidthRequest="100" HeightRequest="140" />
+                            Margin="10,10,0,0" 
+                            WidthRequest="100" 
+                            HeightRequest="140" />
 
                     </Grid>
 
-                    <!-- Barker: ListView items don't seem to get their UIA Name properties set 
-                        like CollectionView items, so use a CollectionView items. -->
+                    <Border StrokeThickness="2" 
+                        Margin="0,10,0,0" 
+                        Padding="10">
+                        <CollectionView ItemsSource="{Binding SampleItems}" 
+                            Header="{x:Static res:AppResources.Songs}"
+                            HeightRequest="120" 
+                            Margin="0">
 
-                    <Border StrokeThickness="2" Margin="0,10,0,0" Padding="10">
-                        <CollectionView ItemsSource="{Binding SampleItems}" HeightRequest="120" 
-                            Margin="0"
-                            Header="Songs">
+                            <!-- *** Accessible Sample *** 
+                             This CollectionView contains Items which contain an image, text, and an icon (which is
+                             implemented using a font glyph). The contained image is purely decorative and conveys no 
+                             useful information for users. However, the icon does convey important information relating 
+                             to the Item, and so each Item's accessible name should be built up using both the text and 
+                             icon contained within the item. This means that as users arrow down through the Items, 
+                             screen readers will announce all the useful information associated with the Item. -->
+
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
-                                    <!-- Barker: Without setting SemanticProperties.Description here, 
-                                        the list items UIA Name is the namespace and class. -->
-                                    <HorizontalStackLayout 
-                                        SemanticProperties.Description="{Binding SongItemAccessibleName}"
+
+                                    <!-- *** Accessible Sample *** 
+                                         The datasource has a SongItemAccessibleName property which contains the 
+                                         localizable accessible name which conveys all the important information 
+                                         associated with each Item. -->
+
+                                    <HorizontalStackLayout SemanticProperties.Description="{Binding SongItemAccessibleName}"
                                         Margin="10,0,0,0">
                                         <Image Source="{AppThemeBinding Light=musicnotes_light.png, Dark=musicnotes_dark.png}"
                                             VerticalOptions="Center" />
                                         <Label Text="{Binding Name}" 
                                             VerticalOptions="Center" />
-                                        <Label Text="{Binding NotAvailable, 
-                                            Converter={StaticResource NotAvailableToText}}"
+                                        <Label Text="{Binding NotAvailable, Converter={StaticResource NotAvailableToText}}"
                                             Margin="8,0,0,0" VerticalOptions="Center" />
                                     </HorizontalStackLayout>
                                 </DataTemplate>
@@ -170,7 +210,5 @@
             </Border>
 
         </StackLayout>        
-
     </ScrollView>
-
 </ContentPage>

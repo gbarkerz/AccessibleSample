@@ -15,7 +15,7 @@
     </Page.Resources>
 
     <Grid Margin="10">
-        
+
         <ScrollViewer Grid.Row="1">
             <StackPanel>
 
@@ -30,7 +30,7 @@
 
                 <!-- First present a group of controls which contain Buttons and Items
                      whose accessible names are either missing or meaningless. -->
-                
+
                 <Border x:Name="InaccessibleGroupBorder"
                     AutomationProperties.LabeledBy="{Binding ElementName=InaccessibleControlsGroupLabel}"
                     BorderThickness="2" Margin="0,10,0,0">
@@ -124,7 +124,7 @@
                 <Border x:Name="AccessibleGroupBorder" 
                     AutomationProperties.LabeledBy="{Binding ElementName=AccessibleControlsGroupLabel}"
                     BorderThickness="2" Margin="0,10,0,0">
-                    
+
                     <StackPanel Margin="10">
 
                         <TextBlock AutomationProperties.HeadingLevel="2"
@@ -147,7 +147,7 @@
                                  accessible name can be set only from the text contained within the item. This means 
                                  that as users arrow down through the Items, screen readers will announce that text, 
                                  and users are informed of all the useful information associated with the Item. -->
-                            
+
                             <ListView x:Uid="AccessibleListFestivals" 
                                 ItemsSource="{x:Bind ViewModel.SampleItemsFestivals}" 
                                 BorderBrush="{ThemeResource ButtonBorderThemeBrush}"
@@ -157,10 +157,10 @@
                                     <DataTemplate>
 
                                         <!-- *** Accessible Sample *** 
-                                             By binding the Item's AutomationProperties.Name property here to the same 
-                                             datasource class Name property used for the text shown within the Item, 
+                                             By binding the Item's AutomationProperties.Name property here to the 
+                                             same datasource Name property used for the text shown within the Item,
                                              the Item's accessible name gets set as required for screen readers. -->
-                                        
+
                                         <Grid AutomationProperties.Name="{Binding Name}">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto"/>
@@ -183,7 +183,7 @@
                                  contained within the Button, and the user will be fully informed of the purpose of the 
                                  Button. This can be achieved by having the Button's AutomationProperties.LabeledBy 
                                  reference the TextBlock contained within the Button. -->
-                            
+
                             <Button Grid.Column="1"
                                 AutomationProperties.LabeledBy="{Binding ElementName=AccessibleButtonTextBlock}"
                                 Click="PlayButton_Click"
@@ -226,9 +226,9 @@
                                 <DataTemplate>
 
                                     <!-- *** Accessible Sample *** 
-                                         The datasource class has a SongItemAccessibleName property which contains the 
-                                         localizable accessible name which conveys all the important information associated
-                                         with each Item. -->
+                                         The datasource has a SongItemAccessibleName property which contains the 
+                                         localizable accessible name which conveys all the important information 
+                                         associated with each Item. -->
 
                                     <Grid AutomationProperties.Name="{Binding SongItemAccessibleName}">
                                         <Grid.ColumnDefinitions>
@@ -253,6 +253,5 @@
 
             </StackPanel>
         </ScrollViewer>
-    
     </Grid>
 </Page>

@@ -98,6 +98,11 @@ namespace AccessibleSampleUWP
 
                 string accessibleName;
 
+                // All Items shows the datasource's Name property text. If the datasource class has a NotAvailable
+                // property of true, the Item also shows an icon informing users of this fact, and in that case the Item's
+                // accessible name must be based on both the Name and NotAvailable properties. If the NotAvailable property
+                // is false, the Item shows no icon, and the Item's accessible name can be set solely from its text.
+
                 if (NotAvailable)
                 {
                     accessibleName = String.Format(loader.GetString("SampleItemSongAccessibleNotAvailableFormat"),
