@@ -133,7 +133,7 @@
     <value>Accessible Sample</value>
   </data>
   <data name="FestivalFirst" xml:space="preserve">
-    <value>Blue Dot</value>
+    <value>bluedot</value>
   </data>
   <data name="FestivalSecond" xml:space="preserve">
     <value>Rewind North</value>

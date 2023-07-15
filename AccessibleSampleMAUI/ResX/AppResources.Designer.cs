@@ -79,7 +79,7 @@ namespace AccessibleSample.ResX {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Blue Dot.
+        ///   Looks up a localized string similar to bluedot.
         /// </summary>
         internal static string FestivalFirst {
             get {
