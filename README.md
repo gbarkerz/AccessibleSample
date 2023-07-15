@@ -32,6 +32,6 @@ The following two Windows screenshots show the NVDA screen reader’s Speech Vie
 
 The following two Android screenshots show the TalkBack screen reader highlighting controls in the app. In one screenshot, TalkBack is highlighting a Button which contains an image with no text, and TalkBack’s caption shows: “Play, Button, Out of list”. In the other screenshot, TalkBack is highlighting an Item which shows text and two images, and TalkBack’s caption shows: “Here Comes the Sun, not available”.
 
-<img src="/Screenshots/SampleAppAndroid_TalkBack_Light.jpg" alt="The TalkBack screen reader's caption showing the announcement made at a Button in the Android MAUI app running in light mode" width="540" height="1200">
+![The TalkBack screen reader's caption showing the announcement made at a Button in the Android MAUI app running in light mode](/Screenshots/SampleAppAndroid_TalkBack_Light.jpg)
 
-<img src="/Screenshots/SampleAppAndroid_TalkBack_Dark.jpg" alt="The TalkBack screen reader's caption showing the announcement made at an Item in the Android MAUI app running in dark  mode" width="540" height="1200">
+![The TalkBack screen reader's caption showing the announcement made at an Item in the Android MAUI app running in dark  mode](/Screenshots/SampleAppAndroid_TalkBack_Dark.jpg)
