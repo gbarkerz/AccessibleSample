@@ -7,11 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessibleSampleUWP", "Acce
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccessibleSampleMaui", "AccessibleSampleMAUI\AccessibleSampleMaui.csproj", "{67A0C43B-947F-4918-9BDC-1379222D5171}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{074EBE65-1A6C-4A4A-86C2-E9EEBC4EA09B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D4868573-B16A-4FDD-800F-70DE770A32C8}"
 	ProjectSection(SolutionItems) = preProject
-		Screenshots\SampleAppMAUI_A11yInsights.png = Screenshots\SampleAppMAUI_A11yInsights.png
-		Screenshots\SampleAppAndroid_TalkBack_Light.jpg = Screenshots\SampleAppAndroid_TalkBack_Light.jpg
+		License.txt = License.txt
+		README.md = README.md
 		Screenshots\SampleAppAndroid_TalkBack_Dark.jpg = Screenshots\SampleAppAndroid_TalkBack_Dark.jpg
+		Screenshots\SampleAppAndroid_TalkBack_Light.jpg = Screenshots\SampleAppAndroid_TalkBack_Light.jpg
+		Screenshots\SampleAppMAUI_A11yInsights.png = Screenshots\SampleAppMAUI_A11yInsights.png
 		Screenshots\SampleAppMAUI_NVDA.png = Screenshots\SampleAppMAUI_NVDA.png
 		Screenshots\SampleAppUWP_A11yInsights.png = Screenshots\SampleAppUWP_A11yInsights.png
 		Screenshots\SampleAppUWP_NVDA.png = Screenshots\SampleAppUWP_NVDA.png
