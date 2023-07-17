@@ -132,9 +132,10 @@
                                     <DataTemplate>
 
                                         <!-- *** Accessible Sample *** 
-                                             By binding the Item's SemanticProperties.Description property here to the 
-                                             same datasource Name property used for the text shown within the Item, the
-                                             Item's accessible name gets set as required for screen readers. -->
+                                             By binding the SemanticProperties.Description of the container in the 
+                                             Item's DataTemplate here to the same datasource Name property used for 
+                                             the text shown within the Item, the Item's accessible name gets set as 
+                                             required for screen readers. -->
 
                                         <HorizontalStackLayout SemanticProperties.Description="{Binding Name}"
                                             Margin="10,0,0,0">

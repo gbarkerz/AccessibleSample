@@ -157,9 +157,10 @@
                                     <DataTemplate>
 
                                         <!-- *** Accessible Sample *** 
-                                             By binding the Item's AutomationProperties.Name property here to the 
-                                             same datasource Name property used for the text shown within the Item,
-                                             the Item's accessible name gets set as required for screen readers. -->
+                                             By binding the AutomationProperties.Name of the container in the 
+                                             Item's DataTemplate here to the same datasource Name property used for 
+                                             the text shown within the Item, the Item's accessible name gets set as 
+                                             required for screen readers. -->
 
                                         <Grid AutomationProperties.Name="{Binding Name}">
                                             <Grid.ColumnDefinitions>
