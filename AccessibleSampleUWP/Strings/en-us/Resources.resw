@@ -154,7 +154,7 @@
     <value>Button and Item Accessibility</value>
   </data>
   <data name="PageSubheading.Text" xml:space="preserve">
-    <value>This sample app demonstrates some fundamental steps relating to building .NET MAUI apps that are more accessible to more people.</value>
+    <value>This sample app demonstrates some fundamental steps relating to building UWP apps that are more accessible to more people.</value>
   </data>
   <data name="PauseButtonResponse" xml:space="preserve">
     <value>Pause button clicked.</value>
